@@ -1,4 +1,4 @@
-const array = [1, 9, 2, 8, 4, 5, 6, 10, 1];
+const array = [1, 9, 2, 8, 4, 5, 6, 10];
 
 const max_number = (a) => {
   let max = null;
@@ -10,21 +10,14 @@ const max_number = (a) => {
   return max;
 };
 
-//!TODO :- Sum of k
+const SumOfK = (arr, sum) => {
+  let hash = new Array(max_number(arr)).fill(0);
+  for (let i = 0; i < arr.length - 1; i++) {
+    if (hash[sum - arr[i]] != 0) {
+      console.log(sum - arr[i], arr[i]);
+    }
+    hash[arr[i]]++;
+  }
+};
 
-//!!Wrong
-// function SumOfK(arr, sum) {
-//   let hash = new Array(max_number(arr)).fill(0);
-//   for (let i = 0; i < arr.length; i++) {
-//     const req = sum - arr[i];
-//     hash[arr[i]]++;
-//     if (hash[req] === 0) {
-//       hash[req]++;
-//     }
-//     if (hash[req] !== 0) {
-//       console.log(req, arr[1]);
-//     }
-//   }
-// }
-
-// SumOfK(array, 10);
+SumOfK(array, 10);
